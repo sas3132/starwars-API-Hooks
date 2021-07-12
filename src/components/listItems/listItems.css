@@ -1,0 +1,25 @@
+.listItems {
+  grid-area: listItems;
+  display: flex;
+  margin: 10px 20px 20px 20px;
+  color: #7c918c;
+}
+.listItems li:hover {
+  background: #03161d;
+  border-radius: 10px;
+  height: 1.5em;
+  line-height: 1.3em;
+  padding-left: 15px;
+  margin-left: 0;
+}
+.listItems li {
+  padding: 5px;
+  list-style-type: none;
+  cursor: pointer;
+}
+.listItems ul {
+  margin: 0;
+  padding: 0;
+}
+
+/*# sourceMappingURL=listItems.css.map */

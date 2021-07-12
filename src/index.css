@@ -1,13 +1,27 @@
+@charset "UTF-8";
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Star Jedi";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("/img/bg.jpg");
+  background-attachment: fixed;
+  /* Фиксируем фон веб-страницы */
+  background-position: left top;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  grid-template-rows: 150px 200px;
+  grid-template-areas: "header header" "randomPlanet randomPlanet" "listItems infoList";
+  background: #253245;
+  border-radius: 20px;
+  max-width: 1080px;
+  margin: 50px auto;
+  opacity: 0.9;
 }
+
+/*# sourceMappingURL=index.css.map */

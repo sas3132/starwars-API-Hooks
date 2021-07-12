@@ -1,0 +1,48 @@
+.randomPlanet {
+
+  display: flex;
+  grid-area: randomPlanet;
+  margin: 10px 10px 10px 20px;
+
+
+  .planetName {
+
+    font-size: 30px;
+    margin-top: 0;
+
+  }
+
+  li {
+
+    margin: 15px;
+    list-style-type: none;
+
+  }
+
+  ul {
+
+    flex-grow: 1;
+    border-bottom: 1px solid #859792;
+    margin: 0;
+    padding: 0;
+    color: #7c918c;
+
+
+  }
+
+  img {
+    width: 180px;
+    height: 180px;
+    border-radius: 20px;
+
+
+  }
+
+}
+
+.borderSpinner{
+  display: flex;
+  grid-area: randomPlanet;
+  margin: 10px;
+  border-bottom: 1px solid #859792;
+}

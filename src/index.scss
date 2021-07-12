@@ -1,0 +1,40 @@
+body {
+  margin: 0;
+  font-family: 'Star Jedi';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: url("/img/bg.jpg");
+
+  background-attachment: fixed; /* Фиксируем фон веб-страницы */
+  background-position: left top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr; //колонки столбец
+  grid-template-rows: 150px 200px; // ряд строка
+  grid-template-areas:
+        "header header"
+        "randomPlanet randomPlanet"
+        "listItems infoList";
+
+  background: #253245;
+  border-radius: 20px;
+  max-width: 1080px;
+  margin: 50px auto;
+  opacity: 0.9;
+
+
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,25 @@
+.infoList {
+  display: flex;
+  grid-area: infoList;
+  margin: 10px 20px 20px 20px;
+  color: #7c918c;
+}
+.infoList .infoImg {
+  width: 180px;
+  height: 180px;
+  border-radius: 20px;
+}
+.infoList .nameItem {
+  margin-top: 0;
+  font-size: 30px;
+}
+.infoList li {
+  margin: 15px;
+  list-style-type: none;
+}
+.infoList ul {
+  margin: 0;
+  padding: 0;
+}
+
+/*# sourceMappingURL=people.css.map */

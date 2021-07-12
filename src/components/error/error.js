@@ -1,13 +1,13 @@
 import React from 'react';
 import './error.scss'
-import logo from './dstar1.svg'
+
 
 
 const Error = () => {
     return (
 
         <div className='borderSpinner'>
-            <img src={logo} alt=""/>
+            <img src='img/dstar1.svg' alt=""/>
             <h2>Error!</h2>
         </div>
     );

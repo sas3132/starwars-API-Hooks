@@ -1,42 +1,74 @@
-import React, {useState} from "react";
+import React, {useCallback, useEffect, useMemo, useRef, useState} from "react";
 import './randomPlanet.scss'
 import '../../Service/swapiService'
 import SwapiService from "../../Service/swapiService";
 import Spiner from "../spinner/spinner";
 import Error from "../error/error";
 
+
 const RandomPlanet = () => {
 
 
     let swapiService = new SwapiService();
-    let [error, setError] = useState(false)
-    let [spinner, setSpinner] = useState(true)
-    let [id, setId] = useState(Math.floor(Math.random() * 25) + 2)// непонятно пока, но работает
-    let [name, setName] = useState(null)
-    let [population, setPopulation] = useState(null)
-    let [rotationPeriod, setRotationPeriod] = useState(null)
-    let [diameter, setDiameter] = useState(null)
+    const [error, setError] = useState(false)
+    const [spinner, setSpinner] = useState(true)
+    let [id, setId] = useState(1)// непонятно пока, но работает
+    const [name, setName] = useState(null)
+    const [population, setPopulation] = useState(null)
+    const [rotationPeriod, setRotationPeriod] = useState(null)
+    const [diameter, setDiameter] = useState(null)
 
-    let onError = () => {
-        setError(true)
-    }
-
-    let updatePlanet = () => {
-        // const id = Math.floor(Math.random() * 25) + 2
-        swapiService.getPlanet(id)
-            .then((planet) => {
-                setSpinner(false)
-                setId(id);
-                setName(name = planet.name);
-                setPopulation(population = planet.population);
-                setRotationPeriod(rotationPeriod = planet.rotation_period);
-                setDiameter(diameter = planet.diameter);
-            })
-            .catch(onError)
-    }
+    // let onError = () => {
+    //     setError(true)
+    // }
 
 
-    updatePlanet()
+    // let updatePlanet = () => {
+    //     // const id = Math.floor(Math.random() * 25) + 2
+    //     swapiService.getPlanet(id)
+    //         .then((planet) => {
+    //             setSpinner(false)
+    //             setName(name = planet.name);
+    //             setPopulation(planet.population);
+    //             setRotationPeriod(rotationPeriod = planet.rotation_period);
+    //             setDiameter(diameter = planet.diameter);
+    //         })
+    //         .catch(onError)
+    // }
+    // setInterval(updatePlanet,1500)
+
+
+
+     useEffect(() => {
+
+          const intervalId =  setInterval(() => {
+ setId(id=Math.floor(Math.random() * 25) + 2)
+
+             fetch(`https://swapi.dev/api/planets/${id}/`)
+                .then((res) => {
+                    if (res.ok) {
+                        return res.json();
+                    } else {
+                        throw new Error();
+                    }
+
+                })
+                .then(data => {setName(data.name);
+                    setSpinner(false);
+                    setId( id);
+                    setPopulation(data.population);
+                    setRotationPeriod(data.rotation_period);
+                    setDiameter(data.diameter)
+                })
+               .catch(() => {
+                  setError(true);
+                  clearInterval(intervalId)
+               });
+
+        },10000)
+return () => clearInterval(intervalId)
+
+    },[id])
 
 
     if (spinner && error === false) {

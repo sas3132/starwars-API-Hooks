@@ -12,7 +12,7 @@ const RandomPlanet = () => {
     let swapiService = new SwapiService();
     const [error, setError] = useState(false)
     const [spinner, setSpinner] = useState(true)
-    let [id, setId] = useState(1)// непонятно пока, но работает
+    const [id, setId] = useState(1)// непонятно пока, но работает
     const [name, setName] = useState(null)
     const [population, setPopulation] = useState(null)
     const [rotationPeriod, setRotationPeriod] = useState(null)
@@ -41,21 +41,20 @@ const RandomPlanet = () => {
 
      useEffect(() => {
 
-          const intervalId =  setInterval(() => {
- setId(id=Math.floor(Math.random() * 25) + 2)
+          const intervalId =   setInterval( () => {
+              let magicNumber = Math.floor(Math.random() * 25) + 2;
 
-             fetch(`https://swapi.dev/api/planets/${id}/`)
+              fetch(`https://swapi.dev/api/planets/${magicNumber}/`)
                 .then((res) => {
                     if (res.ok) {
                         return res.json();
                     } else {
                         throw new Error();
                     }
-
                 })
                 .then(data => {setName(data.name);
                     setSpinner(false);
-                    setId( id);
+                    setId(magicNumber);
                     setPopulation(data.population);
                     setRotationPeriod(data.rotation_period);
                     setDiameter(data.diameter)
@@ -65,7 +64,7 @@ const RandomPlanet = () => {
                   clearInterval(intervalId)
                });
 
-        },10000)
+        },3000)
 return () => clearInterval(intervalId)
 
     },[id])

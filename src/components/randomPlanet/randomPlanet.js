@@ -64,7 +64,7 @@ const RandomPlanet = () => {
                   clearInterval(intervalId)
                });
 
-        },3000)
+        },20000)
 return () => clearInterval(intervalId)
 
     },[id])
@@ -83,9 +83,13 @@ return () => clearInterval(intervalId)
             <Error/>
         )
     }
+    function  handleImageError (ev) {
+        ev.target.src = 'https://starwars-visualguide.com/assets/img/big-placeholder.jpg'
+    }
+
     return (
         <aside className="randomPlanet">
-            <img src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`} alt="Planet"/>
+            <img src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`} alt="Planet" onError={handleImageError}/>
             <ul>
                 <li className="planetName">{name}</li>
                 <li>Population: {population}</li>

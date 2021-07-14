@@ -17,6 +17,9 @@
   //
   //}
 
+
+
+
   li:hover {
     background: #03161d;
     border-radius: 10px;
@@ -27,6 +30,9 @@
 
     margin-left: 0;
   }
+
+
+
 
   li {
 
@@ -41,4 +47,21 @@
     padding: 0;
   }
 
+}
+
+.Spinner{
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+}
+
+.onClick{
+  background: #03161d;
+  border-radius: 10px;
+  height: 1.5em;
+  line-height: 1.3em;
+
+  padding-left: 15px;
+
+  margin-left: 0;
 }

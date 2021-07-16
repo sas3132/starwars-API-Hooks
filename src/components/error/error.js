@@ -7,7 +7,7 @@ const Error = () => {
     return (
 
         <div className='borderSpinner'>
-            <img src='img/dstar1.svg' alt=""/>
+            <img src='img/dstar1.svg' alt="Error"/>
             <h2>Error!</h2>
         </div>
     );

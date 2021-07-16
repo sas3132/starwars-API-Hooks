@@ -37,11 +37,40 @@ const RandomPlanet = () => {
     // }
     // setInterval(updatePlanet,1500)
 
+useEffect(()=>{
+      const firstCall = () =>  {
+        let magicNumber = Math.floor(Math.random() * 25) + 2;
+
+        fetch(`https://swapi.dev/api/planets/${magicNumber}/`)
+            .then((res) => {
+                if (res.ok) {
+                    return res.json();
+                } else {
+                    throw new Error();
+                }
+            })
+            .then(data => {setName(data.name);
+                setSpinner(false);
+                setId(magicNumber);
+                setPopulation(data.population);
+                setRotationPeriod(data.rotation_period);
+                setDiameter(data.diameter)
+            })
+            .catch(() => {
+                setError(true);
+
+            });
+
+    }
+ firstCall()
+},[])
+
+    // const doShit = useCallback(() => fetch(`…/magic`).then(shit => setShit(shit)), [magic]); совет пикачу
 
 
-     useEffect(() => {
+    useEffect(() => {
 
-          const intervalId =   setInterval( () => {
+          const intervalId =   setInterval(  () =>  {
               let magicNumber = Math.floor(Math.random() * 25) + 2;
 
               fetch(`https://swapi.dev/api/planets/${magicNumber}/`)

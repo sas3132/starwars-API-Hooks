@@ -7,10 +7,14 @@ import {useState} from "react";
 
 function App() {
 
-    const [idPerson, setIdPerson] = useState(1)
+    const [idPerson, setIdPerson] = useState(13)
+const [buttonClass, setButtonClass] = useState('')
+
 
     const onPersonSelect = (id) => {
         setIdPerson(id)
+        setButtonClass('bottomLi')
+
     }
 
 
@@ -18,8 +22,8 @@ function App() {
         <div className="wrapper">
             <Header/>
             <RandomPlanet/>
-            <ListItems idUsePerson={onPersonSelect}/>
-            <People personId={idPerson}/>
+            <ListItems idUsePerson={onPersonSelect} button={buttonClass} idP={idPerson} />
+            <People personId={idPerson}  />
 
         </div>
     )

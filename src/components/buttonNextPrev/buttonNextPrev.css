@@ -1,0 +1,19 @@
+button {
+  font-family: "Star Jedi";
+  margin: 10px 10px 10px 0;
+  width: 70px;
+  height: 34px;
+  background-color: #364253;
+  border-radius: 5px;
+  border: 0;
+  cursor: pointer;
+  transition: background 0.1s ease-in-out;
+}
+button:hover {
+  background: #404e62;
+}
+button:active {
+  background: #2c3644;
+}
+
+/*# sourceMappingURL=buttonNextPrev.css.map */

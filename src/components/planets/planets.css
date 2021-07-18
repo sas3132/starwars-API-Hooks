@@ -1,12 +1,11 @@
 .infoList {
   display: flex;
-  grid-area: infoList;
   margin: 10px 20px 20px 20px;
   color: #7c918c;
 }
 .infoList .infoImg {
-  width: 180px;
-  height: 180px;
+  width: auto;
+  height: 300px;
   border-radius: 20px;
 }
 .infoList .nameItem {

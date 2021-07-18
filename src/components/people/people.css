@@ -1,6 +1,5 @@
 .infoList {
   display: flex;
-  grid-area: infoList;
   margin: 10px 20px 20px 20px;
   color: #7c918c;
 }

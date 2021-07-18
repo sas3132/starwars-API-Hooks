@@ -2,6 +2,8 @@ import './listItems.scss'
 import {useEffect, useState} from "react";
 import Spiner from "../spinner/spinner";
 import ButtonNextPrev from "../buttonNextPrev/buttonNextPrev";
+import People from "../people/people";
+
 
 
 const ListItems = (props) => {
@@ -10,21 +12,21 @@ const ListItems = (props) => {
     const [nextPrev, setNextPrev] = useState(1)
 
 
-
-
-
-    const  clickNext =() => {
-        if (nextPrev===9){
+    const clickNext = () => {
+        if (nextPrev === 9) {
             return setNextPrev(1)
-        }else{setNextPrev(nextPrev+1)}
+        } else {
+            setNextPrev(nextPrev + 1)
+        }
 
     }
 
-    const  clickPrev =() => {
-        if (nextPrev===1){
-                return setNextPrev(9)
-            }else{setNextPrev(nextPrev-1)}
-
+    const clickPrev = () => {
+        if (nextPrev === 1) {
+            return setNextPrev(9)
+        } else {
+            setNextPrev(nextPrev - 1)
+        }
 
 
     }
@@ -33,23 +35,23 @@ const ListItems = (props) => {
 
 
     useEffect(() => {
-        fetch(`https://swapi.dev/api/people/?page=${nextPrev}`)
+        fetch(`https://swapi.dev/api/${props.starships}/?page=${nextPrev}`)
             .then(res => res.json())
             .then(data => setName(data.results))
 
-    }, [nextPrev])
+        return () => {
+            setName([]);
+        };
 
-
-
-
+    }, [nextPrev,props.starships])
 
 
     const usePosts = name.map((post) => {
         const idRegExp = /\/([0-9]*)\/$/;
         const idPerson = post.url.match(idRegExp)[1]
-        return  <li  onClick={()=> props.idUsePerson(idPerson)} key={idPerson} className={props.idP===idPerson?props.button:''} > {post.name}</li>
+        return <li onClick={() => props.idUsePerson(idPerson)} key={idPerson}
+                   className={props.idP === idPerson ? props.button : ''}> {post.name}</li>
     })
-
 
 
     if (name.length === 0) {
@@ -61,13 +63,16 @@ const ListItems = (props) => {
     }
 
     return (
+        <>
         <main className="listItems">
             <ul>
                 {usePosts}
-
             </ul>
-            <ButtonNextPrev clickPrev={clickPrev} clickNext={clickNext}  />
+            <ButtonNextPrev clickPrev={clickPrev} clickNext={clickNext}/>
         </main>
+            {/*<People personId={props.idP} />*/}
+            {props.allItems}
+        </>
 
     )
 };

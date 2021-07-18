@@ -1,20 +1,39 @@
 import './starships.scss'
 
-const Starships = () => {
+import {useEffect, useState} from "react";
+
+const Starships = ({personId}) => {
+
+    const [persona, setName] = useState([])
+    // const [id, setId] = useState(null)
+
+    useEffect(() => {
+        fetch(`https://swapi.dev/api/starships/${personId}/`)
+            .then(res => res.json())
+            .then(data => setName(data))
+
+
+        return () => {
+            setName([]);// To fix, cancel all subscriptions and asynchronous tasks in a useEffect cleanup function.
+        };
+
+    }, [personId])
+
+
+
     return (
         <main className="infoList">
-            <img className="infoImg" src="img/starship.jpg" alt=""/>
+            <img className="infoImg" src={`https://starwars-visualguide.com/assets/img/starships/${personId}.jpg`}
+                 alt=""/>
             <ul>
-                <li className="nameItem">Name</li>
-                <li>Model: "CR90 corvette"</li>
-                <li>Manufacturer: "Corellian Engineering Corporation"</li>
-                <li>Cost-in-credits": "3500000"</li>
-                <li>length": "150"</li>
-                <li>Max-atmosphering_speed": "950"</li>
-                <li>Crew: "30-165"</li>
-                <li>Passengers: "600"</li>
-                <li>Cargo_capacity: "3000000"</li>
-                <li>Hyperdrive-rating: "2.0"</li>
+                <li className="nameItem">Name: {persona.name}</li>
+                <li>Model: {persona.model}</li>
+                <li>Cost in credits: {persona.cost_in_credits}</li>
+                <li>Length: {persona.length}</li>
+                <li>Passengers: {persona.passengers}</li>
+                <li>Hyperdrive rating: {persona.hyperdrive_rating}</li>
+                <li>Consumables: {persona.consumables}</li>
+
             </ul>
 
         </main>

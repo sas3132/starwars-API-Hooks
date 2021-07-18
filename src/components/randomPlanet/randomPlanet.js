@@ -115,7 +115,7 @@ return () => clearInterval(intervalId)
     function  handleImageError (ev) {
         ev.target.src = 'https://starwars-visualguide.com/assets/img/big-placeholder.jpg'
     }
-
+//https://starwars-visualguide.com/assets/img/films/2.jpg
     return (
         <aside className="randomPlanet">
             <img src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`} alt="Planet" onError={handleImageError}/>

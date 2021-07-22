@@ -1,22 +1,23 @@
-.infoList {
+.infoListCharacters {
   display: flex;
   margin: 10px 20px 20px 20px;
   color: #7c918c;
 }
-.infoList .infoImg {
-  width: auto;
+.infoListCharacters .infoImg {
+  object-fit: cover;
+  min-width: 250px;
   height: 300px;
   border-radius: 20px;
 }
-.infoList .nameItem {
+.infoListCharacters .nameItem {
   margin-top: 0;
   font-size: 30px;
 }
-.infoList li {
+.infoListCharacters li {
   margin: 15px;
   list-style-type: none;
 }
-.infoList ul {
+.infoListCharacters ul {
   margin: 0;
   padding: 0;
 }

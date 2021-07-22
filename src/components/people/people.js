@@ -19,7 +19,7 @@ const People = ({personId}) => {
 
 
     return (
-        <main className="infoList">
+        <main className="infoListCharacters">
             <img className="infoImg" src={`https://starwars-visualguide.com/assets/img/characters/${personId}.jpg`}
                  alt=""/>
             <ul>

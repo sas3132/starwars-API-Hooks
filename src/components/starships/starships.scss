@@ -1,14 +1,22 @@
-.infoList {
+.infoListStarships {
   display: flex;
   //grid-area: infoList;
   margin: 10px 20px 20px 20px;
   color: #7c918c;
 
 
-  .infoImg {
-    width: auto;
-    height: 300px;
-    border-radius: 20px;
+
+  .infoImgSas {
+    width: 250px;
+    height: 200px;
+
+
+    .infoImg{
+      object-fit: cover;
+      width: 250px;
+      height: 100%;
+      border-radius: 20px;
+    }
   }
 
   .nameItem {

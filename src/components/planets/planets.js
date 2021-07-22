@@ -16,12 +16,17 @@ const Planets = ({personId}) => {
 
     }, [personId])
 
+    function  handleImageError (ev) {
+        ev.target.src = 'https://starwars-visualguide.com/assets/img/big-placeholder.jpg'
+    }
 
 
     return (
         <main className="infoList">
-            <img className="infoImg" src={`https://starwars-visualguide.com/assets/img/planets/${personId}.jpg`}
-                 alt=""/>
+            <div className="infoImg">
+            <img className="infoImgSas" src={`https://starwars-visualguide.com/assets/img/planets/${personId}.jpg`}
+                 alt="Planets" onError={handleImageError}/>
+        </div>
             <ul>
                 <li className="nameItem">Name: {persona.name}</li>
                 <li>Rotation period: {persona.rotation_period}</li>

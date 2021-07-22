@@ -19,12 +19,17 @@ const Starships = ({personId}) => {
 
     }, [personId])
 
+    function  handleImageError (ev) {
+        ev.target.src = 'https://starwars-visualguide.com/assets/img/big-placeholder.jpg'
+    }
 
 
     return (
-        <main className="infoList">
+        <main className="infoListStarships">
+            <div className="infoImgSas">
             <img className="infoImg" src={`https://starwars-visualguide.com/assets/img/starships/${personId}.jpg`}
-                 alt=""/>
+                 alt="Starships" onError={handleImageError}/>
+        </div>
             <ul>
                 <li className="nameItem">Name: {persona.name}</li>
                 <li>Model: {persona.model}</li>

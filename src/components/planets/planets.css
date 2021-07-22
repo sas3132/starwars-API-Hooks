@@ -3,9 +3,9 @@
   margin: 10px 20px 20px 20px;
   color: #7c918c;
 }
-.infoList .infoImg {
-  width: auto;
-  height: 300px;
+.infoList .infoImg .infoImgSas {
+  width: 250px;
+  height: 250px;
   border-radius: 20px;
 }
 .infoList .nameItem {

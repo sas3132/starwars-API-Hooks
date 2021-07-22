@@ -1,22 +1,27 @@
-.infoList {
+.infoListStarships {
   display: flex;
   margin: 10px 20px 20px 20px;
   color: #7c918c;
 }
-.infoList .infoImg {
-  width: auto;
-  height: 300px;
+.infoListStarships .infoImgSas {
+  width: 250px;
+  height: 200px;
+}
+.infoListStarships .infoImgSas .infoImg {
+  object-fit: cover;
+  width: 250px;
+  height: 100%;
   border-radius: 20px;
 }
-.infoList .nameItem {
+.infoListStarships .nameItem {
   margin-top: 0;
   font-size: 30px;
 }
-.infoList li {
+.infoListStarships li {
   margin: 15px;
   list-style-type: none;
 }
-.infoList ul {
+.infoListStarships ul {
   margin: 0;
   padding: 0;
 }

@@ -16,7 +16,7 @@ import {
 function App() {
 
     const [idPerson, setIdPerson] = useState(13)
-    const [idStarships, setIdStarships] = useState(3)
+    const [idStarships, setIdStarships] = useState(10)
     const [idPlanets, setIdPlanets] = useState(3)
 
     const [buttonClass, setButtonClass] = useState('')
@@ -41,20 +41,25 @@ function App() {
             <div className="wrapper">
                 <Header/>
                 <RandomPlanet/>
-                <Route path="/characters">
+
+                <Route exact path={["/characters","/"]}  >
                     <ListItems idUsePerson={onPersonSelect} button={buttonClass} idP={idPerson}
-                               starships={'people'}
+                               pageNextPrev={9}
+                               fetchAll={'people'}
                                allItems={<People personId={idPerson}/>}/>
+
                 </Route>
 
                 <Route path="/starships">
                     <ListItems idUsePerson={onStarshipsSelect} button={buttonClass} idP={idStarships}
-                               starships={'starships'}
+                               pageNextPrev={4}
+                               fetchAll={'starships'}
                                allItems={<Starships personId={idStarships}/>}/>
                 </Route>
                 <Route path="/planets">
                     <ListItems idUsePerson={onPlanetsSelect} button={buttonClass} idP={idPlanets}
-                               starships={'planets'}
+                               pageNextPrev={6}
+                               fetchAll={'planets'}
                                allItems={<Planets personId={idPlanets}/>}/>
                 </Route>
 

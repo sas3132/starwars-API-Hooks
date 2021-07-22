@@ -10,24 +10,22 @@ const ListItems = (props) => {
 
     const [name, setName] = useState([])
     const [nextPrev, setNextPrev] = useState(1)
-
+const pageNextPrev = props.pageNextPrev
 
     const clickNext = () => {
-        if (nextPrev === 9) {
+        if (nextPrev === pageNextPrev) {
             return setNextPrev(1)
         } else {
             setNextPrev(nextPrev + 1)
         }
-
     }
 
     const clickPrev = () => {
         if (nextPrev === 1) {
-            return setNextPrev(9)
+            return setNextPrev(pageNextPrev)
         } else {
             setNextPrev(nextPrev - 1)
         }
-
 
     }
 
@@ -35,7 +33,7 @@ const ListItems = (props) => {
 
 
     useEffect(() => {
-        fetch(`https://swapi.dev/api/${props.starships}/?page=${nextPrev}`)
+        fetch(`https://swapi.dev/api/${props.fetchAll}/?page=${nextPrev}`)
             .then(res => res.json())
             .then(data => setName(data.results))
 
@@ -43,7 +41,7 @@ const ListItems = (props) => {
             setName([]);
         };
 
-    }, [nextPrev,props.starships])
+    }, [nextPrev,props.fetchAll])
 
 
     const usePosts = name.map((post) => {

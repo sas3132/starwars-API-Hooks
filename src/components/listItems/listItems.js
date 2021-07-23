@@ -5,12 +5,11 @@ import ButtonNextPrev from "../buttonNextPrev/buttonNextPrev";
 import People from "../people/people";
 
 
-
 const ListItems = (props) => {
 
     const [name, setName] = useState([])
     const [nextPrev, setNextPrev] = useState(1)
-const pageNextPrev = props.pageNextPrev
+    const pageNextPrev = props.pageNextPrev
 
     const clickNext = () => {
         if (nextPrev === pageNextPrev) {
@@ -30,8 +29,6 @@ const pageNextPrev = props.pageNextPrev
     }
 
 
-
-
     useEffect(() => {
         fetch(`https://swapi.dev/api/${props.fetchAll}/?page=${nextPrev}`)
             .then(res => res.json())
@@ -41,7 +38,7 @@ const pageNextPrev = props.pageNextPrev
             setName([]);
         };
 
-    }, [nextPrev,props.fetchAll])
+    }, [nextPrev, props.fetchAll])
 
 
     const usePosts = name.map((post) => {
@@ -62,12 +59,12 @@ const pageNextPrev = props.pageNextPrev
 
     return (
         <>
-        <main className="listItems">
-            <ul>
-                {usePosts}
-            </ul>
-            <ButtonNextPrev clickPrev={clickPrev} clickNext={clickNext}/>
-        </main>
+            <main className="listItems">
+                <ul>
+                    {usePosts}
+                </ul>
+                <ButtonNextPrev clickPrev={clickPrev} clickNext={clickNext}/>
+            </main>
             {/*<People personId={props.idP} />*/}
             {props.allItems}
         </>

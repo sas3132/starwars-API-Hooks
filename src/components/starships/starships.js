@@ -1,6 +1,7 @@
 import './starships.scss'
 
 import {useEffect, useState} from "react";
+import Spiner from "../spinner/spinner";
 
 const Starships = ({personId}) => {
 
@@ -22,7 +23,13 @@ const Starships = ({personId}) => {
     function  handleImageError (ev) {
         ev.target.src = 'https://starwars-visualguide.com/assets/img/big-placeholder.jpg'
     }
-
+    if (persona.length === 0) {
+        return (
+            <div className='Spinner'>
+                <Spiner/>
+            </div>
+        )
+    }
 
     return (
         <main className="infoListStarships">

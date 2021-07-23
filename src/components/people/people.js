@@ -1,5 +1,6 @@
 import './people.scss'
 import {useEffect, useState} from "react";
+import Spiner from "../spinner/spinner";
 
 const People = ({personId}) => {
 
@@ -16,7 +17,13 @@ const People = ({personId}) => {
 
     }, [personId])
 
-
+    if (persona.length === 0) {
+        return (
+            <div className='Spinner'>
+                <Spiner/>
+            </div>
+        )
+    }
 
     return (
         <main className="infoListCharacters">
